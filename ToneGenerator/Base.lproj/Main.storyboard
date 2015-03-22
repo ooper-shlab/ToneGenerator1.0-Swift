@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7525" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7516"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="ToneGenerator" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="chO-Pw-tbs">
+                                <rect key="frame" x="279" y="28" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="h04-W9-xdI">
+                                <rect key="frame" x="14" y="57" width="572" height="31"/>
+                                <connections>
+                                    <action selector="sliderChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="jg7-wZ-Lhq"/>
+                                </connections>
+                            </slider>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FCg-HE-yVp">
+                                <rect key="frame" x="284" y="95" width="33" height="30"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="togglePlay:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="c3I-ER-aGJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="h04-W9-xdI" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="LxI-K0-igX"/>
+                            <constraint firstItem="chO-Pw-tbs" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="SKz-gv-ekT"/>
+                            <constraint firstItem="chO-Pw-tbs" firstAttribute="centerX" secondItem="h04-W9-xdI" secondAttribute="centerX" id="ULj-iY-njr"/>
+                            <constraint firstItem="FCg-HE-yVp" firstAttribute="top" secondItem="h04-W9-xdI" secondAttribute="bottom" constant="8" symbolic="YES" id="XfG-J6-p3u"/>
+                            <constraint firstItem="chO-Pw-tbs" firstAttribute="centerX" secondItem="FCg-HE-yVp" secondAttribute="centerX" id="dOo-W1-DM6"/>
+                            <constraint firstItem="h04-W9-xdI" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="gVh-Ge-sPl"/>
+                            <constraint firstItem="h04-W9-xdI" firstAttribute="top" secondItem="chO-Pw-tbs" secondAttribute="bottom" constant="8" symbolic="YES" id="j8m-CM-oUK"/>
+                            <constraint firstItem="chO-Pw-tbs" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" symbolic="YES" id="n4O-2D-aOK"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="label" destination="chO-Pw-tbs" id="1tk-1b-AJy"/>
+                        <outlet property="slider" destination="h04-W9-xdI" id="odt-vv-zVw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
