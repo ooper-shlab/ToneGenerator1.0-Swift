@@ -23,16 +23,16 @@ class ViewController: UIViewController {
         slider.minimumValue = -5.0
         slider.maximumValue = 5.0
         slider.value = 0.0
-        var format = AVAudioFormat(standardFormatWithSampleRate: tone.sampleRate, channels: 1)
-        println(format.sampleRate)
+        let format = AVAudioFormat(standardFormatWithSampleRate: tone.sampleRate, channels: 1)
+        print(format.sampleRate)
         engine = AVAudioEngine()
         engine.attachNode(tone)
         let mixer = engine.mainMixerNode
         engine.connect(tone, to: mixer, format: format)
-        var error: NSError? = nil
-        engine.startAndReturnError(&error)
-        if error != nil {
-            println(error!)
+        do {
+            try engine.start()
+        } catch let error as NSError {
+            print(error)
         }
     }
     
