@@ -26,7 +26,7 @@ class ViewController: UIViewController {
         let format = AVAudioFormat(standardFormatWithSampleRate: tone.sampleRate, channels: 1)
         print(format.sampleRate)
         engine = AVAudioEngine()
-        engine.attachNode(tone)
+        engine.attach(tone)
         let mixer = engine.mainMixerNode
         engine.connect(tone, to: mixer, format: format)
         do {
@@ -41,22 +41,22 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func sliderChanged(sender: UISlider) {
+    @IBAction func sliderChanged(_ sender: UISlider) {
         let freq = 440.0 * pow(2.0, Double(slider.value))
         tone.frequency = freq
         label.text = String(format: "%.1f", freq)
     }
     
-    @IBAction func togglePlay(sender: UIButton) {
-        if tone.playing {
+    @IBAction func togglePlay(_ sender: UIButton) {
+        if tone.isPlaying {
             engine.mainMixerNode.volume = 0.0
             tone.stop()
-            sender.setTitle("Start", forState: .Normal)
+            sender.setTitle("Start", for: UIControlState())
         } else {
             tone.preparePlaying()
             tone.play()
             engine.mainMixerNode.volume = 1.0
-            sender.setTitle("Stop", forState: .Normal)
+            sender.setTitle("Stop", for: UIControlState())
         }
     }
 }

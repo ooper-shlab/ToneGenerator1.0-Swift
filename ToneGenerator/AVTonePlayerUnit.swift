@@ -25,19 +25,19 @@ class AVTonePlayerUnit: AVAudioPlayerNode {
     }
     
     func prepareBuffer() -> AVAudioPCMBuffer {
-        let buffer = AVAudioPCMBuffer(PCMFormat: audioFormat, frameCapacity: bufferCapacity)
+        let buffer = AVAudioPCMBuffer(pcmFormat: audioFormat, frameCapacity: bufferCapacity)
         fillBuffer(buffer)
         return buffer
     }
     
-    func fillBuffer(buffer: AVAudioPCMBuffer) {
-        let data = buffer.floatChannelData[0]
+    func fillBuffer(_ buffer: AVAudioPCMBuffer) {
+        let data = buffer.floatChannelData?[0]
         let numberFrames = buffer.frameCapacity
         var theta = self.theta
         let theta_increment = 2.0 * M_PI * self.frequency / self.sampleRate
         
         for frame in 0..<Int(numberFrames) {
-            data[frame] = Float32(sin(theta) * amplitude)
+            data?[frame] = Float32(sin(theta) * amplitude)
             
             theta += theta_increment
             if theta > 2.0 * M_PI {
@@ -51,7 +51,7 @@ class AVTonePlayerUnit: AVAudioPlayerNode {
     func scheduleBuffer() {
         let buffer = prepareBuffer()
         self.scheduleBuffer(buffer) {
-            if self.playing {
+            if self.isPlaying {
                 self.scheduleBuffer()
             }
         }

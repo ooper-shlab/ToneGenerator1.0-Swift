@@ -1,7 +1,7 @@
 ToneGenerator: A simple example of tone generator using AVAudioPlayerUnit
 Version:  1.0
 
-Copyright (c) 2015, OOPer(NAGATA, Atsuyuki)
+Copyright (c) 2015-2017, OOPer(NAGATA, Atsuyuki)
 All rights reserved.
 
 Use of any parts(functions, classes or any other program language components)
