@@ -34,14 +34,14 @@ class AVTonePlayerUnit: AVAudioPlayerNode {
         let data = buffer.floatChannelData?[0]
         let numberFrames = buffer.frameCapacity
         var theta = self.theta
-        let theta_increment = 2.0 * M_PI * self.frequency / self.sampleRate
+        let theta_increment = 2.0 * .pi * self.frequency / self.sampleRate
         
         for frame in 0..<Int(numberFrames) {
             data?[frame] = Float32(sin(theta) * amplitude)
             
             theta += theta_increment
-            if theta > 2.0 * M_PI {
-                theta -= 2.0 * M_PI
+            if theta > 2.0 * .pi {
+                theta -= 2.0 * .pi
             }
         }
         buffer.frameLength = numberFrames
