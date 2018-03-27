@@ -51,6 +51,7 @@ class ViewController: UIViewController {
         if tone.isPlaying {
             engine.mainMixerNode.volume = 0.0
             tone.stop()
+            engine.reset()
             sender.setTitle("Start", for: UIControlState())
         } else {
             tone.preparePlaying()
