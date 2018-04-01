@@ -24,7 +24,7 @@ class ViewController: UIViewController {
         slider.maximumValue = 5.0
         slider.value = 0.0
         let format = AVAudioFormat(standardFormatWithSampleRate: tone.sampleRate, channels: 1)
-        print(format.sampleRate)
+        print(format?.sampleRate ?? "format nil")
         engine = AVAudioEngine()
         engine.attach(tone)
         let mixer = engine.mainMixerNode
